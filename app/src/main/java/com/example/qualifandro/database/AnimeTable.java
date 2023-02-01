@@ -19,7 +19,6 @@ public class AnimeTable {
         return instance;
     }
 
-
     public ArrayList<Anime> getAllAnimes(){
         return animes;
     }

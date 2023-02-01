@@ -25,7 +25,7 @@ public class APIManager {
     private RecyclerView rvAnime;
     public String url = "https://api.jikan.moe/v4/top/anime";
     private AnimeRecyclerAdapter cra;
-    public APIManager(Context ctx, AnimeRecyclerAdapter cra, RecyclerView rv){
+    public APIManager(Context ctx, AnimeRecyclerAdapter cra,RecyclerView rv){
         this.ctx = ctx;
         this.queue = Volley.newRequestQueue(ctx);
         this.cra = cra;
@@ -37,22 +37,23 @@ public class APIManager {
         JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET , url, null, response -> {
             try {
                 JSONArray records = response.getJSONArray("data");
-                for(int i = 0 ; i < records.length() ; i++){
-                    try {
-                        JSONObject temp = records.getJSONObject(i);
-                        String name = temp.getString("title");
-                        String image = temp.getJSONObject("images").getJSONObject("jpg").getString("image_url");
-                        double rating = temp.getDouble("score");
-                        int episodes = temp.getInt("episodes");
-                        table.insertAnime(new Anime(name, image, episodes, rating));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                if(table.getAllAnimes().size() == 0){
+                    for(int i = 0 ; i < records.length() ; i++){
+                        try {
+                            JSONObject temp = records.getJSONObject(i);
+                            String name = temp.getString("title");
+                            String image = temp.getJSONObject("images").getJSONObject("jpg").getString("image_url");
+                            double rating = temp.getDouble("score");
+                            int episodes = temp.getInt("episodes");
+                            table.insertAnime(new Anime(name, image, episodes, rating));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
                 cra = new AnimeRecyclerAdapter(ctx);
                 cra.setCakes(table.getAllAnimes());
                 cra.notifyDataSetChanged();
-
                 rvAnime.setAdapter(cra);
                 rvAnime.setLayoutManager(new LinearLayoutManager(ctx));
             } catch (JSONException e) {

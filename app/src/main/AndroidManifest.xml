@@ -17,11 +17,6 @@
             android:value="AIzaSyBOewWNsicPNGgqvTjdEIlgRX1JBRpJMjc" />
 
         <activity
-            android:name=".UserActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

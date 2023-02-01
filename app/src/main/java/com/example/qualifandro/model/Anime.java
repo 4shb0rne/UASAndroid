@@ -1,8 +1,6 @@
 package com.example.qualifandro.model;
 
-import java.io.Serializable;
-
-public class Anime implements Serializable {
+public class Anime {
     private String name, image;
     private int episodes;
     private double rating;
