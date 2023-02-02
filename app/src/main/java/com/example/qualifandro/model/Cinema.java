@@ -1,13 +1,17 @@
 package com.example.qualifandro.model;
 
+import java.util.ArrayList;
+
 public class Cinema {
     private String name;
     private double latitude, longitude;
+    private ArrayList<Booking> bookings;
 
     public Cinema(String name, double latitude, double longitude){
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.bookings = new ArrayList<>();
     }
 
     public String getName() {
@@ -22,15 +26,11 @@ public class Cinema {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
     public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
+    public ArrayList<Booking> getBookings() {
+        return bookings;
     }
 }

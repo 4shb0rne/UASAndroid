@@ -11,44 +11,39 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Media -->
+        <ImageView
+            android:id="@+id/booking_img"
+            android:layout_width="match_parent"
+            android:layout_height="194dp"
+            app:srcCompat="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop"
+            android:contentDescription="TEST"
+            />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
+
+            <!-- Title, secondary and supporting text -->
             <TextView
-                android:id="@+id/cinema_name"
+                android:id="@+id/booking_movie_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TEST"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/map_btn"
+            <TextView
+                android:id="@+id/booking_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="2dp"
-                android:text="Open Map"
+                android:layout_marginTop="8dp"
+                android:text="TEST"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
                 />
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/book_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="2dp"
-                android:text="Booking"
-                />
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/book_list_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Show Booking"
-                />
-
         </LinearLayout>
     </LinearLayout>
 

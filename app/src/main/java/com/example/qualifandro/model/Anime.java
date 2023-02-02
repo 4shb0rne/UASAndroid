@@ -35,4 +35,6 @@ public class Anime {
     public double getRating() {
         return rating;
     }
+
+
 }

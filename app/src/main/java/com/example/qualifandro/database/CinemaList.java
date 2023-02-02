@@ -21,7 +21,7 @@ public class CinemaList {
     private void initCinemas(){
         cinemas.add(new Cinema("Cinema CGP Alpha", -6.193924061113853,
                 106.78813220277623));
-        cinemas.add(new Cinema("Cinema CGP Alpha", -6.20175020412279,
+        cinemas.add(new Cinema("Cinema CGP Beta", -6.20175020412279,
                 106.78223868546155));
     }
 
