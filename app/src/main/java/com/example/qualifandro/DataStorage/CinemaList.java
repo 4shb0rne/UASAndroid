@@ -1,4 +1,4 @@
-package com.example.qualifandro.database;
+package com.example.qualifandro.DataStorage;
 import com.example.qualifandro.model.Cinema;
 
 import java.util.ArrayList;

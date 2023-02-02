@@ -13,8 +13,7 @@ import android.widget.TextView;
 
 import com.example.qualifandro.R;
 import com.example.qualifandro.adapter.BookingRecyclerAdapter;
-import com.example.qualifandro.adapter.CinemaRecyclerAdapter;
-import com.example.qualifandro.database.CinemaList;
+import com.example.qualifandro.DataStorage.CinemaList;
 import com.example.qualifandro.model.Cinema;
 
 /**

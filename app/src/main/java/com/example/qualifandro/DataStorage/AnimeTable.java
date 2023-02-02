@@ -1,7 +1,6 @@
-package com.example.qualifandro.database;
+package com.example.qualifandro.DataStorage;
 
 import com.example.qualifandro.model.Anime;
-import com.example.qualifandro.utility.APIManager;
 
 import java.util.ArrayList;
 

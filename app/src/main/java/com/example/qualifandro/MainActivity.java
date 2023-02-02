@@ -1,28 +1,15 @@
 package com.example.qualifandro;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.qualifandro.adapter.AnimeRecyclerAdapter;
-import com.example.qualifandro.database.AnimeTable;
 import com.example.qualifandro.databinding.ActivityMainBinding;
 import com.example.qualifandro.fragment.CinemaFragment;
 import com.example.qualifandro.fragment.HomeFragment;
-import com.example.qualifandro.model.Cinema;
-import com.example.qualifandro.utility.APIManager;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;

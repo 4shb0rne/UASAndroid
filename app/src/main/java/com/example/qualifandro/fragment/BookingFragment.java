@@ -17,11 +17,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.qualifandro.R;
-import com.example.qualifandro.database.AnimeTable;
-import com.example.qualifandro.database.CinemaList;
+import com.example.qualifandro.DataStorage.AnimeTable;
+import com.example.qualifandro.DataStorage.CinemaList;
 import com.example.qualifandro.model.Anime;
 import com.example.qualifandro.model.Booking;
-import com.example.qualifandro.model.Cinema;
 
 import java.util.ArrayList;
 

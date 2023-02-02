@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.qualifandro.R;
 import com.example.qualifandro.adapter.AnimeRecyclerAdapter;
-import com.example.qualifandro.database.AnimeTable;
+import com.example.qualifandro.DataStorage.AnimeTable;
 import com.example.qualifandro.utility.APIManager;
 
 /**

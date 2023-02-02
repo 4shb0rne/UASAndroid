@@ -1,7 +1,6 @@
 package com.example.qualifandro.utility;
 
 import android.util.Log;
-import android.widget.Toast;
 import android.content.Context;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,7 +11,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.qualifandro.adapter.AnimeRecyclerAdapter;
-import com.example.qualifandro.database.AnimeTable;
+import com.example.qualifandro.DataStorage.AnimeTable;
 import com.example.qualifandro.model.Anime;
 
 import org.json.JSONArray;
