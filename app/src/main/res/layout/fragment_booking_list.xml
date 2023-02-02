@@ -12,6 +12,14 @@
         android:orientation="vertical"
         tools:context=".fragment.BookingListFragment">
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:textSize="36dp"
+            android:textStyle="bold"
+            android:text="Booking List" />
+        <TextView
             android:id="@+id/empty_message"
             android:visibility="gone"
             android:layout_width="match_parent"

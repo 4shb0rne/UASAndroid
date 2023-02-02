@@ -11,7 +11,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".fragment.HomeFragment">
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:text="Anime List" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_animes"
             android:layout_width="match_parent"
