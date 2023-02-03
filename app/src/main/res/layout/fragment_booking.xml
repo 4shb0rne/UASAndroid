@@ -61,6 +61,22 @@
             />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Studio" />
+
+        <Spinner
+            android:id="@+id/studio_spinners"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:overlapAnchor="false"
+            android:spinnerMode="dropdown"
+            />
+
+
+        <TextView
             android:id="@+id/renting_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

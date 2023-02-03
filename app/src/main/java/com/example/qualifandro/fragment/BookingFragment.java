@@ -21,7 +21,9 @@ import com.example.qualifandro.DataStorage.AnimeTable;
 import com.example.qualifandro.DataStorage.CinemaList;
 import com.example.qualifandro.model.Anime;
 import com.example.qualifandro.model.Booking;
+import com.example.qualifandro.model.Studio;
 
+import java.sql.Array;
 import java.util.ArrayList;
 
 /**
@@ -42,7 +44,7 @@ public class BookingFragment extends Fragment implements AdapterView.OnItemSelec
     private TextView currentCinema, errorTxt;
     private String name, rent;
     private Double latitude, longitude;
-    private Spinner spin;
+    private Spinner animeSpin, studioSpinner;
     private Button rentBtn;
     private EditText renterName;
     public BookingFragment() {
@@ -88,8 +90,12 @@ public class BookingFragment extends Fragment implements AdapterView.OnItemSelec
         latitude = args.getDouble("latitude");
         errorTxt = view.findViewById(R.id.renting_error);
         rentBtn = view.findViewById(R.id.btn_rent);
-        spin = view.findViewById(R.id.anime_spinners);
-        spin.setOnItemSelectedListener(this);
+        animeSpin = view.findViewById(R.id.anime_spinners);
+        animeSpin.setOnItemSelectedListener(this);
+
+        studioSpinner = view.findViewById(R.id.studio_spinners);
+        studioSpinner.setOnItemSelectedListener(this);
+
         renterName = view.findViewById(R.id.txt_renter_name);
         ArrayList<String> animeNames = new ArrayList<>();
         ArrayList<String> animeImages = new ArrayList<>();
@@ -97,10 +103,26 @@ public class BookingFragment extends Fragment implements AdapterView.OnItemSelec
             animeNames.add(anime.getName());
             animeImages.add(anime.getImage());
         }
+        int idx = 0;
+        for(int i = 0; i < cinemaList.getAllCinemas().size(); i++){
+            if(cinemaList.getAllCinemas().get(i).getName().equals(name)){
+                idx = i;
+            }
+        }
+
+        ArrayList<String> studioNames = new ArrayList<>();
+        for(Studio studio : cinemaList.getAllCinemas().get(idx).getAvailableStudios()){
+            studioNames.add(studio.getStudioName());
+        }
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, animeNames);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin.setAdapter(arrayAdapter);
+
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, studioNames);
+        arrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        animeSpin.setAdapter(arrayAdapter);
+        studioSpinner.setAdapter(arrayAdapter2);
         currentCinema = view.findViewById(R.id.cinema_txt);
         currentCinema.setText("Chosen Cinema : " + name);
 
@@ -109,17 +131,24 @@ public class BookingFragment extends Fragment implements AdapterView.OnItemSelec
             public void onClick(View view) {
                 if(validateInput()){
                     int idx = 0;
-                    errorTxt.setVisibility(View.GONE);
-                    String animeTitle = spin.getSelectedItem().toString();
+                    String animeTitle = animeSpin.getSelectedItem().toString();
+                    String studioName = studioSpinner.getSelectedItem().toString();
                     for(int i = 0; i < cinemaList.getAllCinemas().size(); i++){
                         if(cinemaList.getAllCinemas().get(i).getName().equals(name)){
                             idx = i;
                         }
                     }
+                    for(Studio studio : cinemaList.getAllCinemas().get(idx).getAvailableStudios()){
+                        if(studio.getStudioName().equals(studioName)){
+                            studio.setRenter(rent);
+                        }
+                    }
+                    errorTxt.setVisibility(View.GONE);
+
                     for(Anime anime : animeTable.getAllAnimes()){
                         if(anime.getName().equals(animeTitle)){
                             cinemaList.getAllCinemas().get(idx).getBookings().add(new Booking("Penyewa : " + rent, animeTitle,
-                                    anime.getImage()));
+                                    anime.getImage(), studioName));
                         }
                     }
                     replaceFragment(new CinemaFragment());

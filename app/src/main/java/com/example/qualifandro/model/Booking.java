@@ -1,12 +1,22 @@
 package com.example.qualifandro.model;
 
 public class Booking {
-    private String username, animename, image;
+    private String username, animename, image, studioName;
 
-    public Booking(String username, String animename, String image) {
+    public String getStudioName() {
+        return studioName;
+    }
+
+    public void setStudioName(String studioName) {
+        this.studioName = studioName;
+    }
+
+    public Booking(String username, String animename, String image,
+                   String studioName) {
         this.username = username;
         this.animename = animename;
         this.image = image;
+        this.studioName = studioName;
     }
 
     public String getUsername() {

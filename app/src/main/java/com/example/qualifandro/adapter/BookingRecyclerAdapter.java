@@ -39,6 +39,7 @@ public class BookingRecyclerAdapter extends RecyclerView.Adapter<BookingRecycler
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bookingUserName.setText(bookings.get(position).getUsername());
         holder.bookingMovieName.setText(bookings.get(position).getAnimename());
+        holder.bookingStudioName.setText(bookings.get(position).getStudioName());
         Glide.with(holder.itemView).load(bookings.get(position).getImage()).into(holder.bookingImage);
     }
 
@@ -49,7 +50,7 @@ public class BookingRecyclerAdapter extends RecyclerView.Adapter<BookingRecycler
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView bookingMovieName, bookingUserName;
+        TextView bookingMovieName, bookingUserName, bookingStudioName;
         ImageView bookingImage;
 
         public ViewHolder(@NonNull View itemView) {
@@ -57,6 +58,7 @@ public class BookingRecyclerAdapter extends RecyclerView.Adapter<BookingRecycler
             bookingMovieName = itemView.findViewById(R.id.booking_movie_name);
             bookingUserName = itemView.findViewById(R.id.booking_user_name);
             bookingImage = itemView.findViewById(R.id.booking_img);
+            bookingStudioName = itemView.findViewById(R.id.booking_studio);
         }
     }
 }
